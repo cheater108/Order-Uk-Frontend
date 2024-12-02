@@ -1,0 +1,60 @@
+.container {
+    margin-top: 10px;
+}
+
+.container h1 {
+    font-size: 1.5rem;
+}
+
+.restraunts_container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.card {
+    width: calc((100% - 50px) / 6);
+    background: var(--theme-yellow);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card div {
+    padding: 0px 0.7rem 0.4rem;
+}
+
+.card p:first-of-type {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: center;
+    padding-block: 0.5rem;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        width: 95%;
+        margin: auto;
+        margin-top: 10px;
+    }
+    .container h1 {
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 122px;
+    }
+
+    .card img {
+        width: 122px;
+    }
+
+    .card div {
+        padding: 0px 0.7rem;
+    }
+}

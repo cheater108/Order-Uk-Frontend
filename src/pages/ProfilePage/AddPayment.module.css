@@ -1,0 +1,81 @@
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgb(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: white;
+    border-radius: 12px;
+    min-width: 582px;
+    max-width: 650px;
+}
+
+.top {
+    padding: 1rem;
+}
+
+.top h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.info {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.info p {
+    width: 150px;
+}
+
+.info input {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: 1.5px solid #afafaf;
+    border-radius: 8px;
+    font-family: Poppins;
+}
+
+.bottom {
+    background-color: var(--theme-yellow);
+    padding: 1rem;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom button {
+    font-family: Poppins;
+    font-weight: 500;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.remove {
+    color: white;
+    background: #663700;
+}
+
+.cancel {
+    color: white;
+    background-color: var(--theme-yellow);
+    margin-right: 10px;
+}
+
+.save {
+    color: black;
+    background-color: white;
+}

@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    padding: 1rem;
+    min-height: 110vh;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover {
+    flex: 1;
+    background-image: url("https://res.cloudinary.com/dxcgng2n6/image/upload/v1732985040/order-uk/login-cover_qenykr.png");
+    border-radius: 12px;
+    background-size: cover;
+}
+
+@media (max-width: 1000px) {
+    .cover {
+        display: none;
+    }
+}

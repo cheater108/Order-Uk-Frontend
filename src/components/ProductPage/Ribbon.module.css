@@ -1,0 +1,22 @@
+.container {
+    position: relative;
+    background-color: var(--theme-yellow);
+    padding-block: 0.5rem;
+    margin-top: 10px;
+}
+
+.inner {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-weight: 700;
+    align-items: center;
+}
+
+.inner p:first-of-type {
+    padding: 0.5rem 1rem;
+    background-color: black;
+    border-radius: 22em;
+}

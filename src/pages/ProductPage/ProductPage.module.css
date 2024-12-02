@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+.inner {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 80px;
+}
+
+@media (max-width: 1000px) {
+    .inner {
+        width: 98%;
+    }
+}

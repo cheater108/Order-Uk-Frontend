@@ -1,0 +1,162 @@
+.top {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: 600;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.top img {
+    cursor: pointer;
+}
+
+.order_container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.left {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #03081f;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #202938;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.item_details {
+    flex: 1;
+    font-weight: 600;
+}
+
+.item_details p:last-of-type {
+    font-size: 0.9rem;
+    color: #83858a;
+    font-weight: 400;
+}
+
+.price {
+    font-weight: 600;
+    color: var(--theme-green);
+}
+
+.bottom p {
+    margin-top: 1rem;
+    color: #83858a;
+    font-size: 0.9rem;
+}
+
+.left input {
+    width: 100%;
+    padding: 0.7rem 1.5rem;
+    border-radius: 22em;
+    border: 1px solid #202938;
+    margin-top: 5px;
+}
+
+.right {
+    width: 34%;
+    align-self: flex-start;
+}
+
+.address {
+    display: flex;
+    align-items: center;
+    border: 1px solid #03081f;
+    padding: 0.5rem;
+    border-radius: 22em;
+    gap: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.pin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #2d3748;
+    border-radius: 100%;
+}
+
+.add_details {
+    flex: 1;
+    font-weight: 500;
+}
+
+.add_details p:last-of-type {
+    color: #83858a;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.bill {
+    padding-block: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid #202938;
+    border-bottom: 1px solid #202938;
+    margin-top: 1rem;
+}
+
+.bill_item {
+    display: flex;
+    justify-content: space-between;
+    color: #83858a;
+}
+
+.bill_item p:last-of-type {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    color: #83858a;
+    margin-top: 1rem;
+}
+
+.total p:last-of-type {
+    color: black;
+    font-weight: 700;
+}
+
+.right button {
+    border: none;
+    width: 100%;
+    background-color: var(--theme-yellow);
+    color: white;
+    font-weight: 600;
+    font-family: Poppins;
+    padding: 0.6rem 1rem;
+    border-radius: 22em;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .order_container {
+        flex-direction: column;
+    }
+
+    .right {
+        width: 100%;
+        align-self: stretch;
+    }
+}

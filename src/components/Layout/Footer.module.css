@@ -1,0 +1,134 @@
+.container {
+    background: rgb(217, 217, 217, 0.6);
+    padding-top: 3rem;
+    margin-top: 20px;
+}
+
+.top {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 2rem;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 10px;
+}
+
+.left img {
+    width: 60%;
+}
+
+.left p {
+    font-size: 0.9rem;
+}
+
+.right {
+    display: flex;
+    gap: 30px;
+}
+
+.contact_container p:first-of-type {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.contact_container p:last-of-type {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.search_container {
+    display: flex;
+    background: #d9d9d9;
+    border-radius: 22em;
+    margin-top: 7px;
+    width: 87%;
+}
+
+.search_container input {
+    display: block;
+    flex: 1;
+    border: none;
+    background: #d9d9d9;
+    padding: 0.8rem;
+    border-radius: 22em;
+}
+
+.search_container input:focus {
+    outline: none;
+}
+
+.search_container button {
+    display: block;
+    color: white;
+    font-family: Poppins;
+    font-weight: 600;
+    background-color: var(--theme-yellow);
+    border: none;
+    padding: 0rem 3rem;
+    border-radius: 22em;
+    cursor: pointer;
+}
+
+.links_container p {
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.links_container p:first-of-type {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.bottom {
+    color: white;
+    background-color: black;
+    font-size: 0.8rem;
+}
+
+.bottom_container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    padding-block: 1rem;
+    justify-content: space-between;
+}
+
+.bottom_right {
+    display: flex;
+    gap: 20px;
+}
+
+@media (max-width: 1000px) {
+    .top {
+        flex-direction: column;
+    }
+
+    .left {
+        width: 100%;
+        align-items: center;
+    }
+
+    .left img {
+        width: 80%;
+    }
+
+    .left p {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .right {
+        flex-direction: column;
+    }
+    .bottom_right {
+        display: none;
+    }
+}

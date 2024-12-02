@@ -1,0 +1,129 @@
+.top_container {
+    background: #fafafa;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    border: 1px solid #0000001a;
+    margin: auto;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.top_left {
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    gap: 6px;
+}
+
+.offer {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.offer span {
+    color: var(--theme-yellow);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.location_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.location {
+    font-size: 0.9rem;
+}
+
+.change_location {
+    color: var(--theme-yellow);
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.top_right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart_container {
+    background-color: var(--theme-green);
+    height: 100%;
+    display: flex;
+    border: 1px solid #0000001a;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    cursor: pointer;
+}
+
+.cart_icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.4rem 1rem;
+    border-right: 1px solid #ffffff43;
+}
+
+.cart_icon p {
+    color: white;
+    font-weight: 600;
+}
+
+.cart_price {
+    width: 100px;
+    border-right: 1px solid #ffffff43;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+.cart_down {
+    display: flex;
+    padding: 0.2rem;
+    align-items: center;
+}
+
+.mobile_header {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .top_left {
+        display: none;
+    }
+    .top_right {
+        display: none;
+    }
+    .mobile_header {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid #0000004d;
+    }
+    .top_container {
+        background: white;
+        width: 100%;
+        border: none;
+    }
+
+    .mobile_left {
+        flex: 1;
+        padding: 0.5rem;
+    }
+
+    .mobile_left img {
+        width: 150px;
+    }
+
+    .mobile_img {
+        border-left: 1px solid #0000004d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

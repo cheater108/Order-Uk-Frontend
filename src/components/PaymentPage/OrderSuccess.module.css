@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 350px;
+    margin: auto;
+    margin-top: 2.5rem;
+    margin-bottom: 100px;
+}
+
+.success {
+    background: #32b6381f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    padding: 1rem;
+}
+
+.container p {
+    text-align: center;
+    color: #83858a;
+    font-size: 0.9rem;
+}
+
+.container > p:first-of-type {
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: black;
+}
+
+.details {
+    width: 100%;
+    border: 1.5px solid #000000;
+    border-radius: 12px;
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.details p {
+    color: black;
+}
+
+.details button {
+    border: none;
+    width: 100%;
+    background-color: var(--theme-yellow);
+    color: white;
+    font-weight: 600;
+    font-family: Poppins;
+    padding: 0.6rem 1rem;
+    border-radius: 22em;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.login_container {
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-inline: 1rem;
+    background: #03081f;
+    border-radius: 22em;
+    cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .left {
+        display: none;
+    }
+    .right {
+        display: none;
+    }
+    .navbar {
+        margin-top: 0px;
+    }
+}

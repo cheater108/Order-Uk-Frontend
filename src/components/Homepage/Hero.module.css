@@ -1,0 +1,205 @@
+.hero {
+    background: #fbfbfb;
+    margin-top: 20px;
+    padding: 1rem;
+    border: 1px solid #00000033;
+    border-radius: 12px;
+    display: flex;
+    position: relative;
+    padding-block: 3rem;
+}
+
+.left {
+    width: 42%;
+    padding: 2rem;
+}
+
+.left h1 {
+    font-size: 2.5rem;
+    font-weight: 600px;
+}
+
+.left p {
+    font-size: 0.9rem;
+}
+
+.heading {
+    color: var(--theme-yellow);
+    margin-bottom: 40px;
+}
+
+.search_container {
+    display: flex;
+    background: white;
+    border: 1px solid #00000066;
+    border-radius: 22em;
+    margin-top: 7px;
+    width: 87%;
+}
+
+.search_container input {
+    display: block;
+    flex: 1;
+    border: none;
+    background-color: white;
+    padding: 0.8rem;
+    border-radius: 22em;
+}
+
+.search_container input:focus {
+    outline: none;
+}
+
+.search_container button {
+    display: block;
+    color: white;
+    font-family: Poppins;
+    font-weight: 600;
+    background-color: var(--theme-yellow);
+    border: none;
+    padding: 0rem 3rem;
+    border-radius: 22em;
+    cursor: pointer;
+}
+
+.eat1 {
+    height: 360px;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 266px);
+}
+
+.right {
+    flex: 1;
+}
+
+.orange_div {
+    width: 37%;
+    height: 95%;
+    background-color: var(--theme-yellow);
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    border-top-left-radius: 11em;
+    border-bottom-right-radius: 12px;
+}
+
+.eat2 {
+    height: 80%;
+    position: absolute;
+    bottom: 0px;
+    left: -15%;
+}
+
+.info {
+    background: white;
+    padding: 0.5rem;
+    border-radius: 12px;
+    width: 65%;
+    position: absolute;
+}
+
+.info_top {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+}
+
+.info p {
+    font-size: 0.7rem;
+}
+
+.info p:first-of-type {
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+.one {
+    top: 12%;
+    left: 18%;
+}
+
+.two {
+    top: 41%;
+    left: 30%;
+}
+
+.three {
+    top: 74%;
+    left: 23%;
+}
+
+.info_number {
+    font-size: 3rem;
+    position: absolute;
+    top: -56px;
+    right: 16px;
+    -webkit-text-fill-color: var(
+        --theme-yellow
+    ); /* Will override color (regardless of order) */
+    -webkit-text-stroke: 1px white;
+}
+
+.mobile_hero {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .hero {
+        display: none;
+    }
+
+    .mobile_hero {
+        color: white;
+        padding: 1.7rem 1rem;
+        display: block;
+        background: #03081f;
+        text-align: center;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+        margin: auto;
+    }
+
+    .mobile_hero span {
+        color: var(--theme-yellow);
+    }
+
+    .mobile_hero p {
+        font-size: 0.7rem;
+    }
+
+    .mobile_hero h1 {
+        font-weight: 600;
+    }
+
+    .mobile_input {
+        display: flex;
+        justify-content: center;
+        background-color: white;
+        border-radius: 22em;
+        margin-top: 30px;
+    }
+
+    .mobile_input div {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--theme-yellow);
+        border-radius: 100%;
+    }
+
+    .mobile_input input {
+        border: none;
+        border-radius: 22em;
+        padding: 0.4rem 1rem;
+    }
+
+    .mobile_input input:focus {
+        outline: none;
+    }
+}
