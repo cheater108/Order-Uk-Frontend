@@ -14,6 +14,7 @@ function Register() {
         number: "",
         name: "",
     });
+    const [loading, setLoading] = useState(false);
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -30,14 +31,17 @@ function Register() {
             return;
         }
 
+        setLoading(true);
         postRegister(user)
             .then((data) => {
                 toast.success(data.message);
+                setLoading(false);
                 navigate("/user");
             })
-            .catch(({ response }) =>
-                toast.error(response?.data?.error || "Something went wrong")
-            );
+            .catch(({ response }) => {
+                toast.error(response?.data?.error || "Something went wrong");
+                setLoading(false);
+            });
     }
 
     return (
@@ -90,7 +94,11 @@ function Register() {
                     onChange={handleChange}
                     required
                 />
-                <button>Continue</button>
+                {loading ? (
+                    <button disabled>Registering...</button>
+                ) : (
+                    <button>Continue</button>
+                )}
                 <p>
                     Already have an account?{" "}
                     <span onClick={() => navigate("/user")}>Sign in</span>

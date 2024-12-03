@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 function Login() {
     const navigate = useNavigate();
     const [user, setUser] = useState({ email: "", password: "" });
+    const [loading, setLoading] = useState(false);
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -15,16 +16,20 @@ function Login() {
 
     function handleLogin(e) {
         e.preventDefault();
+
+        setLoading(true);
         postLogin(user)
             .then((data) => {
                 toast.success(data.message);
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("name", data.name);
                 localStorage.setItem("email", data.email);
+                setLoading(false);
                 navigate("/");
             })
             .catch(({ response }) => {
                 toast.error(response?.data?.error || "Something went wrong");
+                setLoading(false);
             });
     }
 
@@ -60,7 +65,11 @@ function Login() {
                     onChange={handleChange}
                     required
                 />
-                <button>Sign in</button>
+                {loading ? (
+                    <button disabled>Signin...</button>
+                ) : (
+                    <button type="submit">Sign in</button>
+                )}
                 <p>
                     Don't you have an account?{" "}
                     <span onClick={() => navigate("/user/register")}>
