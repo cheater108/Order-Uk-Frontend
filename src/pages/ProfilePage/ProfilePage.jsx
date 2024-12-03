@@ -2,6 +2,7 @@ import styles from "./ProfilePage.module.css";
 import arrow from "../../assets/arrow-left-2.svg";
 import card from "../../assets/credit-card.svg";
 import edit_icon from "../../assets/edit.svg";
+import arrow_circle from "../../assets/arrow-left-circle.svg";
 import AddPayment from "./AddPayment";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +32,18 @@ function ProfilePage() {
             <div className={styles.container}>
                 <Toaster />
                 <div className={styles.top}>
-                    <img src={arrow} alt="back" onClick={() => navigate("/")} />
+                    <img
+                        className="desktop_back"
+                        src={arrow}
+                        alt="back"
+                        onClick={() => navigate("/")}
+                    />
+                    <img
+                        className="mobile_back"
+                        src={arrow_circle}
+                        alt=""
+                        onClick={() => navigate("/")}
+                    />
                     <p>My Profile</p>
                 </div>
                 <div className={styles.user}>

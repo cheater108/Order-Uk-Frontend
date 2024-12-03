@@ -11,3 +11,16 @@
     margin: auto;
     margin-top: 30px;
 }
+
+.mobile_back {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .desktop_back {
+        display: none;
+    }
+    .mobile_back {
+        display: block;
+    }
+}

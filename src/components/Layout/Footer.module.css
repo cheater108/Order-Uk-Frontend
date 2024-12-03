@@ -106,6 +106,16 @@
     gap: 20px;
 }
 
+.socials {
+    display: flex;
+    gap: 10px;
+}
+
+.socials img {
+    width: 33px;
+    margin-top: 10px;
+}
+
 @media (max-width: 1000px) {
     .top {
         flex-direction: column;

@@ -1,6 +1,10 @@
 import styles from "./Footer.module.css";
 import logo from "../../assets/logo.svg";
 import play_store from "../../assets/play-store.svg";
+import facebook from "../../assets/Facebook.svg";
+import insta from "../../assets/Instagram.svg";
+import tiktok from "../../assets/TikTok.svg";
+import snapchat from "../../assets/Snapchat.svg";
 
 function Footer() {
     return (
@@ -21,7 +25,12 @@ function Footer() {
                             <button>Search</button>
                         </div>
                         <p>we wont spam, read our email policy</p>
-                        <div className={styles.socials}></div>
+                        <div className={styles.socials}>
+                            <img src={facebook} alt="" />
+                            <img src={insta} alt="" />
+                            <img src={tiktok} alt="" />
+                            <img src={snapchat} alt="" />
+                        </div>
                     </div>
                     <div className={styles.links_container}>
                         <p>Legal pages</p>

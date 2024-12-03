@@ -1,5 +1,6 @@
 import styles from "./Address.module.css";
 import arrow from "../../assets/arrow-left-2.svg";
+import arrow_circle from "../../assets/arrow-left-circle.svg";
 import AddAddress from "./AddAddress";
 import { useEffect, useState } from "react";
 import { getAddress } from "../../api/user";
@@ -34,7 +35,19 @@ function Address({ setAddress }) {
         <>
             <Toaster />
             <div className={styles.top}>
-                <img onClick={() => setAddress(false)} src={arrow} alt="back" />
+                <img
+                    className="desktop_back"
+                    onClick={() => setAddress(false)}
+                    src={arrow}
+                    alt="back"
+                />
+
+                <img
+                    className="mobile_back"
+                    src={arrow_circle}
+                    alt=""
+                    onClick={() => setAddress(false)}
+                />
                 <p>Your Addresses</p>
             </div>
             <div className={styles.container}>

@@ -2,6 +2,7 @@ import styles from "./PaymentOption.module.css";
 import arrow from "../../assets/arrow-left-2.svg";
 import wallet from "../../assets/wallet.svg";
 import arrow_right from "../../assets/arrow-right-orange.svg";
+import arrow_circle from "../../assets/arrow-left-circle.svg";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../context/AppProvider";
 import { getCards } from "../../api/user";
@@ -24,8 +25,15 @@ function PaymentOption() {
         <>
             <div className={styles.top}>
                 <img
+                    className="desktop_back"
                     src={arrow}
                     alt="back"
+                    onClick={() => navigate("/checkout")}
+                />
+                <img
+                    className="mobile_back"
+                    src={arrow_circle}
+                    alt=""
                     onClick={() => navigate("/checkout")}
                 />
                 <p>Choose and Pay</p>

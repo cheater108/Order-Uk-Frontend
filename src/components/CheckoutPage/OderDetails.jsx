@@ -2,6 +2,7 @@ import styles from "./OrderDetails.module.css";
 import arrow from "../../assets/arrow-left-2.svg";
 import pin from "../../assets/location-orange.svg";
 import arrow_right from "../../assets/arrow-right-orange.svg";
+import arrow_circle from "../../assets/arrow-left-circle.svg";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppProvider";
@@ -20,6 +21,13 @@ function OderDetails({ setAddress }) {
                     onClick={() => navigate("/restaurant")}
                     src={arrow}
                     alt="back"
+                    className="desktop_back"
+                />
+                <img
+                    className="mobile_back"
+                    src={arrow_circle}
+                    alt=""
+                    onClick={() => navigate("/restaurant")}
                 />
                 <p>Your Order Details</p>
             </div>
