@@ -1,15 +1,36 @@
 import styles from "./Banner.module.css";
-import banner from "../../assets/cloudinary/banner.png";
-import banner2 from "../../assets/cloudinary/banner2.png";
 import order_list from "../../assets/order_list.svg";
 import bike from "../../assets/delivery_bike.svg";
 import clock from "../../assets/clock.svg";
+import { useRef, useState } from "react";
+import { searchFood } from "../../api/restaurant";
 
-function Banner() {
+function Banner({ setMenu }) {
+    const [search, setSearch] = useState("");
+    const timeRef = useRef(null);
+
+    function searchFoodItem(e) {
+        setSearch(e.target.value);
+
+        if (timeRef.current) clearTimeout(timeRef.current);
+
+        timeRef.current = setTimeout(() => {
+            searchFood(search)
+                .then((data) => setMenu(data))
+                .catch((err) => console.log("Error searching for food"));
+        }, 300);
+    }
+
     return (
         <>
             <div className={styles.container}>
-                <img className={styles.banner_img} src={banner} alt="banner" />
+                <img
+                    className={styles.banner_img}
+                    src={
+                        "https://res.cloudinary.com/dxcgng2n6/image/upload/v1732543218/order-uk/banner_nr6fi4.png"
+                    }
+                    alt="banner"
+                />
                 <div className={styles.banner_left}>
                     <p>I'm lovin' it!</p>
                     <h1 className={styles.name}>McDonald’s East London</h1>
@@ -28,7 +49,13 @@ function Banner() {
                     <img src={clock} alt="time" />
                     <p>Open until 3:00 AM</p>
                 </div>
-                <img className={styles.food} src={banner2} alt="burger" />
+                <img
+                    className={styles.food}
+                    src={
+                        "https://res.cloudinary.com/dxcgng2n6/image/upload/v1732543216/order-uk/banner2_rosawi.png"
+                    }
+                    alt="burger"
+                />
             </div>
             <div className={styles.below}>
                 <h1>All Offers from McDonald’s East London</h1>
@@ -37,6 +64,8 @@ function Banner() {
                         id="search"
                         type="text"
                         placeholder="Search from menu..."
+                        onChange={searchFoodItem}
+                        value={search}
                     />
                 </div>
             </div>

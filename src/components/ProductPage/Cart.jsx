@@ -8,7 +8,7 @@ import arrow_white from "../../assets/arrow-right-white.svg";
 import scooter from "../../assets/scooter.svg";
 import store from "../../assets/store.svg";
 import alert_icon from "../../assets/alert.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../context/AppProvider";
 import { useNavigate } from "react-router-dom";
 import { shareCart } from "../../api/share";
@@ -17,6 +17,7 @@ import toast, { Toaster } from "react-hot-toast";
 function Cart() {
     const navigate = useNavigate();
     const { order, removeItem } = useContext(AppContext);
+    const [loading, setLoading] = useState(false);
     const total = order.reduce((acc, item) => acc + item.count * item.price, 0);
 
     function handleCheckout() {
@@ -24,14 +25,19 @@ function Cart() {
     }
 
     function handleShare() {
+        setLoading(true);
         shareCart(order)
             .then((data) => {
                 navigator.clipboard.writeText(
                     `${window.location.origin}/shared/${data.id}`
                 );
                 toast.success("Cart shared! Link copied.");
+                setLoading(false);
             })
-            .catch((err) => toast.error(err.response.data.error));
+            .catch((err) => {
+                toast.error(err.response.data.error);
+                setLoading(false);
+            });
     }
 
     return (
@@ -40,7 +46,11 @@ function Cart() {
             <div className={styles.share}>
                 <img src={share} alt="share" width={"40px"} />
                 <p>Share this cart with your friends</p>
-                <button onClick={handleShare}>Copy Link</button>
+                {loading ? (
+                    <button>Sharing...</button>
+                ) : (
+                    <button onClick={handleShare}>Copy Link</button>
+                )}
             </div>
             <div className={styles.cart_container}>
                 <div className={styles.top}>

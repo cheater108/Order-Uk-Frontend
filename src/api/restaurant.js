@@ -10,4 +10,13 @@ async function getPopularRestaurants() {
     return result.data;
 }
 
-export { getMenu, getPopularRestaurants };
+async function searchFood(name) {
+    if (name === "") {
+        const data = await getMenu("Common");
+        return data;
+    }
+    const result = await api.get(`/restaurant/search?name=${name}`);
+    return result.data;
+}
+
+export { getMenu, getPopularRestaurants, searchFood };

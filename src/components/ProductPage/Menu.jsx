@@ -1,26 +1,12 @@
 import menuData from "../../data/menuData";
 import styles from "./Menu.module.css";
-import first_order from "../../assets/cloudinary/first-order.png";
 import add from "../../assets/add.svg";
-import burger from "../../assets/cloudinary/burger-fries.png";
 import Cart from "./Cart";
-import { useContext, useEffect, useState } from "react";
-import { getMenu } from "../../api/restaurant";
+import { useContext } from "react";
 import { AppContext } from "../../context/AppProvider";
 
-function Menu() {
+function Menu({ menu }) {
     const { order, addItem } = useContext(AppContext);
-    const [menu, setMenu] = useState({
-        burger: [],
-        fries: [],
-        cold_drinks: [],
-    });
-
-    useEffect(() => {
-        getMenu("Common")
-            .then((data) => setMenu(data))
-            .catch((err) => console.log("error fetching menu"));
-    }, []);
 
     return (
         <div className={styles.container}>

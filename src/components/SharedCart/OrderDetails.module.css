@@ -149,3 +149,14 @@
     margin-top: 2rem;
     cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+    .order_container {
+        flex-direction: column;
+    }
+
+    .right {
+        width: 100%;
+        align-self: stretch;
+    }
+}

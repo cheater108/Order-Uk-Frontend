@@ -25,6 +25,13 @@
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top h1 img {
+    display: none;
 }
 
 .info {
@@ -78,4 +85,40 @@
 .save {
     color: black;
     background-color: white;
+}
+
+@media (max-width: 1000px) {
+    .modal {
+        align-items: flex-start;
+    }
+    .container {
+        min-width: unset;
+        width: 95%;
+        margin-top: 70px;
+    }
+    .cancel {
+        display: none;
+    }
+    .save {
+        color: white;
+        background-color: var(--theme-yellow);
+    }
+    .remove {
+        width: 45%;
+    }
+    .bottom {
+        background-color: white;
+        padding-top: 0px;
+    }
+    .top {
+        padding-bottom: 0px;
+    }
+
+    .top h1 {
+        font-size: 1.2rem;
+    }
+
+    .top h1 img {
+        display: block;
+    }
 }

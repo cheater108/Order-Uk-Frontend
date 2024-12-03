@@ -54,7 +54,7 @@ function Header() {
             </div>
             <div className={styles.mobile_header}>
                 <div className={styles.mobile_left}>
-                    <img src={logo} alt="" />
+                    <img onClick={() => navigate("/")} src={logo} alt="" />
                 </div>
                 <div className={styles.mobile_img}>
                     <img src={menu} alt="" />

@@ -58,3 +58,15 @@
     align-self: flex-end;
     cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+    .middle {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 90%;
+        margin-bottom: 80px;
+    }
+}

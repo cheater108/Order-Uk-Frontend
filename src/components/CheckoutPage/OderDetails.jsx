@@ -2,7 +2,6 @@ import styles from "./OrderDetails.module.css";
 import arrow from "../../assets/arrow-left-2.svg";
 import pin from "../../assets/location-orange.svg";
 import arrow_right from "../../assets/arrow-right-orange.svg";
-import pizza from "../../assets/cloudinary/pizza-checkout.png";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../../context/AppProvider";

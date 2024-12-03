@@ -3,6 +3,7 @@ import arrow from "../../assets/arrow-left-2.svg";
 import AddAddress from "./AddAddress";
 import { useEffect, useState } from "react";
 import { getAddress } from "../../api/user";
+import { Toaster } from "react-hot-toast";
 
 function Address({ setAddress }) {
     const [add, setAdd] = useState(false);
@@ -31,6 +32,7 @@ function Address({ setAddress }) {
 
     return (
         <>
+            <Toaster />
             <div className={styles.top}>
                 <img onClick={() => setAddress(false)} src={arrow} alt="back" />
                 <p>Your Addresses</p>

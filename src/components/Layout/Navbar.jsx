@@ -6,10 +6,20 @@ import { isLoggedIn } from "../../../utils/helpers";
 
 function Navbar() {
     const navigate = useNavigate();
+
+    function conditionalNav() {
+        if (isLoggedIn()) navigate("/profile");
+        else navigate("/user");
+    }
     return (
         <div className={styles.navbar}>
             <div className={styles.left}>
-                <img src={logo} alt="logo" height={"40px"} />
+                <img
+                    onClick={() => navigate("/")}
+                    src={logo}
+                    alt="logo"
+                    height={"40px"}
+                />
             </div>
             <div className={styles.right}>
                 <NavLink className={styles.navlink} to={"/"}>
@@ -20,14 +30,15 @@ function Navbar() {
                     Restaurants
                 </NavLink>
                 <a className={styles.navlink}>Track Order</a>
-                <div className={styles.login_container}>
+                <div
+                    className={styles.login_container}
+                    onClick={conditionalNav}
+                >
                     <img src={user_icon} alt="user" />
                     {isLoggedIn() ? (
-                        <p onClick={() => navigate("/profile")}>
-                            Hey {localStorage.getItem("name").split(" ")[0]}
-                        </p>
+                        <p>Hey {localStorage.getItem("name").split(" ")[0]}</p>
                     ) : (
-                        <p onClick={() => navigate("/user")}>Login/Signup</p>
+                        <p>Login/Signup</p>
                     )}
                 </div>
             </div>

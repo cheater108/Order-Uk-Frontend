@@ -30,4 +30,29 @@ async function getCards() {
     return result.data;
 }
 
-export { postRegister, postLogin, postAddress, getAddress, postCard, getCards };
+async function getCardById(id) {
+    const result = await api.get(`/user/card/${id}`);
+    return result.data;
+}
+
+async function deleteCard(id) {
+    const result = await api.delete(`/user/card/${id}`);
+    return result.data;
+}
+
+async function updateCard(card, id) {
+    const result = await api.put(`/user/card/${id}`, card);
+    return result.data;
+}
+
+export {
+    postRegister,
+    postLogin,
+    postAddress,
+    getAddress,
+    postCard,
+    getCards,
+    getCardById,
+    deleteCard,
+    updateCard,
+};

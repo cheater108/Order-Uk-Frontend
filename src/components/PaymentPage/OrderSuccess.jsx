@@ -11,12 +11,14 @@ function OrderSuccess() {
     const [confirmed_order, setConfirmed] = useState([]);
 
     useEffect(() => {
-        postOrder(order)
-            .then((data) => {
-                setConfirmed(data.order);
-                updateCart([]);
-            })
-            .catch((err) => console.log("Error order not placed"));
+        if (order.length > 0) {
+            postOrder(order)
+                .then((data) => {
+                    setConfirmed(data.order);
+                    updateCart([]);
+                })
+                .catch((err) => console.log("Error order not placed"));
+        }
     }, []);
 
     return (

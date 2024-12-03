@@ -3,6 +3,7 @@ import location from "../../assets/location.svg";
 import { useState } from "react";
 import { postAddress } from "../../api/user";
 import toast from "react-hot-toast";
+import { validateAddress } from "../../../utils/validators";
 
 function AddAddress({ setAdd, refreshAddress }) {
     const [address, setAddress] = useState({
@@ -12,16 +13,30 @@ function AddAddress({ setAdd, refreshAddress }) {
         phone: "",
         address: "",
     });
+    const [loading, setLoading] = useState(false);
 
     function handleAdd() {
+        const { valid, error, message } = validateAddress(address);
+
+        if (!valid) {
+            for (const e in error) {
+                if (error[e]) toast.error(message[e]);
+            }
+            return;
+        }
+
+        setLoading(true);
         postAddress(address)
             .then((data) => {
                 toast.success(data.message);
                 setAdd(false);
+                setLoading(false);
                 refreshAddress();
             })
-            .catch((err) => {
-                toast.error("Unable to add address");
+            .catch(({ response }) => {
+                console.log(response);
+                toast.error(response?.data?.error || "Something went wrong");
+                setLoading(false);
                 setAdd(false);
             });
     }
@@ -30,11 +45,11 @@ function AddAddress({ setAdd, refreshAddress }) {
         setAddress({ ...address, [e.target.name]: e.target.value });
     }
 
-    function hide(e) {
+    function hideModal(e) {
         if (e.target.className === styles.modal) setAdd(false);
     }
     return (
-        <div className={styles.modal} onClick={hide}>
+        <div className={styles.modal} onClick={hideModal}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <img src={location} alt="" />
@@ -80,7 +95,11 @@ function AddAddress({ setAdd, refreshAddress }) {
                         value={address.address}
                     ></textarea>
                 </div>
-                <button onClick={handleAdd}>Save</button>
+                {loading ? (
+                    <button>Saving...</button>
+                ) : (
+                    <button onClick={handleAdd}>Save</button>
+                )}
             </div>
         </div>
     );

@@ -1,17 +1,19 @@
 import styles from "./ProfilePage.module.css";
 import arrow from "../../assets/arrow-left-2.svg";
-import user_img from "../../assets/cloudinary/customer-2.png";
 import card from "../../assets/credit-card.svg";
-import edit from "../../assets/edit.svg";
+import edit_icon from "../../assets/edit.svg";
 import AddPayment from "./AddPayment";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { getCards } from "../../api/user";
+import { cardNumWithSpaces } from "../../../utils/helpers";
+import EditPayment from "./EditPayment";
 
 function ProfilePage() {
     const navigate = useNavigate();
     const [add, setAdd] = useState(false);
+    const [edit, setEdit] = useState(false);
     const [cards, setCards] = useState([]);
 
     function refreshCards() {
@@ -34,7 +36,12 @@ function ProfilePage() {
                 </div>
                 <div className={styles.user}>
                     <div className={styles.user_left}>
-                        <img src={user_img} alt="user" />
+                        <img
+                            src={
+                                "https://res.cloudinary.com/dxcgng2n6/image/upload/v1732985785/order-uk/customer-2_uvrnpj.png"
+                            }
+                            alt="user"
+                        />
                         <p>{localStorage.getItem("name")}</p>
                     </div>
                     <button>Edit</button>
@@ -66,13 +73,13 @@ function ProfilePage() {
                                     <img src={card} alt="" />
                                 </div>
                                 <div className={styles.card_info}>
-                                    <p>{info.card_no}</p>
+                                    <p>{cardNumWithSpaces(info.card_no)}</p>
                                     <p>{info.name}</p>
                                 </div>
                                 <img
-                                    src={edit}
+                                    src={edit_icon}
                                     alt=""
-                                    onClick={() => setAdd(true)}
+                                    onClick={() => setEdit(info._id)}
                                 />
                             </div>
                         ))}
@@ -91,6 +98,13 @@ function ProfilePage() {
                 </div>
             </div>
             {add && <AddPayment setAdd={setAdd} refreshCards={refreshCards} />}
+            {edit && (
+                <EditPayment
+                    card_id={edit}
+                    setEdit={setEdit}
+                    refreshCards={refreshCards}
+                />
+            )}
         </>
     );
 }

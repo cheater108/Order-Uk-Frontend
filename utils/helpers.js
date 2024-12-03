@@ -7,4 +7,8 @@ function selectedAdd() {
     const add = JSON.parse(localStorage.getItem("address"));
     return add;
 }
-export { isLoggedIn, selectedAdd };
+
+function cardNumWithSpaces(number) {
+    return `xxxx xxxx xxxx ${number.substring(12, 16)}`;
+}
+export { isLoggedIn, selectedAdd, cardNumWithSpaces };

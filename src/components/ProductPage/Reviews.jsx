@@ -1,15 +1,28 @@
 import styles from "./Reviews.module.css";
 import arrow_left from "../../assets/arrow-left.svg";
 import arrow_right from "../../assets/arrow-right.svg";
-import customer from "../../assets/cloudinary/customer-1.png";
 import star_full from "../../assets/star-full.svg";
 import clock from "../../assets/clock-3.svg";
-import sample_review from "../../assets/cloudinary/review-sample.png";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { getComments } from "../../api/comments";
 
 function Reviews() {
     const [comments, setComments] = useState([]);
+    const scrollContainer = useRef(null);
+
+    const scrollLeft = () => {
+        if (scrollContainer.current) {
+            scrollContainer.current.scrollBy({
+                left: -20,
+                behavior: "smooth",
+            });
+        }
+    };
+    const scrollRight = () => {
+        if (scrollContainer.current) {
+            scrollContainer.current.scrollBy({ left: 20, behavior: "smooth" });
+        }
+    };
 
     useState(() => {
         getComments()
@@ -22,15 +35,15 @@ function Reviews() {
             <div className={styles.top}>
                 <h1>Customer Reviews</h1>
                 <div className={styles.arrows}>
-                    <div className={styles.arrow}>
+                    <div className={styles.arrow} onClick={() => scrollLeft()}>
                         <img src={arrow_left} alt="" />
                     </div>
-                    <div className={styles.arrow}>
+                    <div className={styles.arrow} onClick={() => scrollRight()}>
                         <img src={arrow_right} alt="" />
                     </div>
                 </div>
             </div>
-            <div className={styles.reviews}>
+            <div ref={scrollContainer} className={styles.reviews}>
                 {comments.map((comment) => (
                     <div key={comment._id} className={styles.review_card}>
                         <div className={styles.review_top}>
@@ -61,7 +74,11 @@ function Reviews() {
                     </div>
                 ))}
             </div>
-            <img className={styles.sample} src={sample_review} alt="" />
+            <img
+                className={styles.sample}
+                src="https://res.cloudinary.com/dxcgng2n6/image/upload/v1733143432/order-uk/review-sample_czwesb.png"
+                alt=""
+            />
         </div>
     );
 }

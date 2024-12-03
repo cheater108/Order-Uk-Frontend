@@ -66,4 +66,101 @@ function validateRegister(user) {
     return { valid, error, message };
 }
 
-export { validateRegister };
+function validateAddress(address) {
+    let valid = true;
+    const error = {
+        phone: false,
+        address: false,
+        city: false,
+        pin: false,
+        state: false,
+    };
+
+    const message = {
+        address: "Address cannot be empty",
+        phone: "Phone no. must contain numbers only",
+        city: "City is required",
+        pin: "Pin is required",
+        state: "State is required",
+    };
+
+    if (!/^\d+$/.test(address.phone)) {
+        valid = false;
+        error.phone = true;
+    }
+
+    if (!(address.phone.length === 10)) {
+        valid = false;
+        error.phone = true;
+        message.phone = "Number must be exactly 10 digits long";
+    }
+
+    if (address.address.length <= 0) {
+        valid = false;
+        error.address = true;
+    }
+
+    if (address.city.length <= 0) {
+        valid = false;
+        error.city = true;
+    }
+
+    if (address.pin.length <= 0) {
+        valid = false;
+        error.pin = true;
+    }
+
+    if (address.state.length <= 0) {
+        valid = false;
+        error.state = true;
+    }
+
+    return { valid, error, message };
+}
+
+function validateCard(card) {
+    let valid = true;
+    const error = {
+        card_no: false,
+        name: false,
+        cvc: false,
+        exp: false,
+    };
+
+    const message = {
+        card_no: "Card no. can only contain numbers",
+        name: "Name cannot be empty",
+        cvc: "CVC cannot be empty",
+        exp: "Exp cannot be empty",
+    };
+
+    if (!/^\d+$/.test(card.card_no)) {
+        valid = false;
+        error.card_no = true;
+    }
+
+    if (!(card.card_no.length === 16)) {
+        valid = false;
+        error.card_no = true;
+        message.card_no = "Card number must be exactly 16 digits long";
+    }
+
+    if (card.name.length <= 0) {
+        valid = false;
+        error.name = true;
+    }
+
+    if (card.cvc.length <= 0) {
+        valid = false;
+        error.cvc = true;
+    }
+
+    if (card.exp.length <= 0) {
+        valid = false;
+        error.exp = true;
+    }
+
+    return { valid, error, message };
+}
+
+export { validateRegister, validateAddress, validateCard };

@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./AddPayment.module.css";
-import { postCard } from "../../api/user";
+import { deleteCard, getCardById, updateCard } from "../../api/user";
 import toast from "react-hot-toast";
 import { validateCard } from "../../../utils/validators";
 import cross_icon from "../../assets/plus-circle.svg";
 
-function AddPayment({ setAdd, refreshCards }) {
+function EditPayment({ setEdit, refreshCards, card_id }) {
     const [card, setCard] = useState({
         card_no: "",
         name: "",
@@ -24,17 +24,30 @@ function AddPayment({ setAdd, refreshCards }) {
         }
 
         setLoading(true);
-        postCard(card)
+        updateCard(card, card_id)
             .then((data) => {
                 toast.success(data.message);
                 refreshCards();
-                setAdd(false);
+                setEdit(null);
                 setLoading(false);
             })
             .catch((err) => {
                 toast.error("Error posting card");
-                setAdd(false);
+                setEdit(null);
                 setLoading(false);
+            });
+    }
+
+    function handleRemove() {
+        deleteCard(card_id)
+            .then((data) => {
+                toast.success(data.message);
+                refreshCards();
+                setEdit(null);
+            })
+            .catch((err) => {
+                toast.error("Error deleting card");
+                setEdit(null);
             });
     }
 
@@ -43,18 +56,26 @@ function AddPayment({ setAdd, refreshCards }) {
     }
 
     function hide(e) {
-        if (e.target.className === styles.modal) setAdd(false);
+        if (e.target.className === styles.modal) setEdit(null);
     }
+
+    useEffect(() => {
+        getCardById(card_id)
+            .then((data) => {
+                setCard(data.card);
+            })
+            .catch((err) => toast.error("Error fetching card details"));
+    }, []);
 
     return (
         <div className={styles.modal} onClick={hide}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     <h1>
-                        Edit Payment Method{" "}
+                        Edit Payment Method
                         <img
                             src={cross_icon}
-                            onClick={() => setAdd(false)}
+                            onClick={() => setEdit(null)}
                             alt=""
                         />
                     </h1>
@@ -96,21 +117,18 @@ function AddPayment({ setAdd, refreshCards }) {
                     </div>
                 </div>
                 <div className={styles.bottom}>
-                    <button
-                        className={styles.remove}
-                        onClick={() => setAdd(false)}
-                    >
+                    <button className={styles.remove} onClick={handleRemove}>
                         Remove
                     </button>
                     <div className={styles.bottom_right}>
                         <button
                             className={styles.cancel}
-                            onClick={() => setAdd(false)}
+                            onClick={() => setEdit(false)}
                         >
                             Cancel
                         </button>
                         {loading ? (
-                            <button className={styles.save}>Saving...</button>
+                            <button className={styles.save}>Updating...</button>
                         ) : (
                             <button
                                 className={styles.save}
@@ -126,4 +144,4 @@ function AddPayment({ setAdd, refreshCards }) {
     );
 }
 
-export default AddPayment;
+export default EditPayment;

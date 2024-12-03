@@ -73,6 +73,7 @@
 
 .payments {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     font-size: 1rem;
     font-weight: 400;
@@ -117,10 +118,32 @@
     padding: 0.5rem;
     border: 0.5px solid rgba(0, 0, 0, 0.5);
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .add_info {
     color: black;
     font-size: 1rem;
+}
+
+.card > img:last-of-type {
     cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    .card {
+        width: 100%;
+    }
+    .add_card {
+        width: 100%;
+    }
+    .info {
+        width: 100%;
+    }
+    .user_left img {
+        width: 50px;
+    }
+    .user_left {
+        gap: 10px;
+    }
 }

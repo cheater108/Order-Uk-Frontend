@@ -4,9 +4,16 @@ import pin_icon from "../../assets/location-pin.svg";
 import { useNavigate } from "react-router-dom";
 import { isLoggedIn } from "../../../utils/helpers";
 import { selectedAdd } from "../../../utils/helpers";
+import Cart from "../ProductPage/Cart";
+import { useState } from "react";
 
 function MobileNav() {
     const navigate = useNavigate();
+    const [show, setShow] = useState(false);
+
+    function hideModal(e) {
+        if (e.target.className === styles.modal) setShow(false);
+    }
     return (
         <>
             <div className={styles.container}>
@@ -26,7 +33,7 @@ function MobileNav() {
                         <p onClick={() => navigate("/user")}>Login/Signup</p>
                     )}
                 </div>
-                <div className={styles.right}>
+                <div className={styles.right} onClick={() => setShow(true)}>
                     <img src={cart} alt="" />
                     <p>My Cart</p>
                 </div>
@@ -35,6 +42,11 @@ function MobileNav() {
                 <div className={styles.location}>
                     <img src={pin_icon} alt="pin" />
                     <p>{selectedAdd().address.substring(0, 30) + "..."}</p>
+                </div>
+            )}
+            {show && (
+                <div className={styles.modal} onClick={hideModal}>
+                    <Cart />
                 </div>
             )}
         </>

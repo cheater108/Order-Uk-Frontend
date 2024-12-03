@@ -56,3 +56,9 @@
     margin-top: 0.5rem;
     cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+    .details {
+        width: 80%;
+    }
+}

@@ -161,6 +161,7 @@
         align-items: center;
         width: 95%;
         margin: auto;
+        margin-top: 20px;
     }
 
     .mobile_hero span {

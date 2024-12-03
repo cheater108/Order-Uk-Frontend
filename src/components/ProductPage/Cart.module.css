@@ -218,3 +218,30 @@
     color: var(--theme-yellow);
     text-decoration: underline;
 }
+
+@media (max-width: 1000px) {
+    .container {
+        width: 90%;
+    }
+    .share {
+        width: 100%;
+    }
+    .tooltip {
+        display: none;
+    }
+    .top h1 {
+        font-size: 1.4rem;
+    }
+
+    .top img {
+        width: 35px;
+    }
+    .top {
+        padding: 0.6rem;
+    }
+
+    .cart_container {
+        height: 65vh;
+        overflow-y: auto;
+    }
+}
